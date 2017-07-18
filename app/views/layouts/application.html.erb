@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light" style="background-color: #981a36;">
+      <div class="container-fluid">
+        <%= image_tag("https://s3-us-west-2.amazonaws.com/kpl.assets/WhiteonMaroon.jpg", height: '70') %>
+        <div class="navbar-nav">
+            <h3><%= link_to "DevDash", memes_path, { class: "nav-item nav-link", style: "color:white;" } %></h3>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
