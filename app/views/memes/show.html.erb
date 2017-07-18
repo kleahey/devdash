@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Meme:</strong>
+  <%= image_tag @meme.image.url(:medium) %>
+</p>
+
+<p>
+  <strong>Date to Display Meme:</strong>
+  <%= @meme.view_date.strftime("%m-%d-%Y") %>
+</p>
+
+<%= link_to 'Edit', edit_meme_path(@meme) %> |
+<%= link_to 'Back', memes_path %>

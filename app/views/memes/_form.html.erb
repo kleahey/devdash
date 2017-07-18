@@ -1,0 +1,22 @@
+<%= simple_form_for @meme do |f| %>
+  <% if meme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meme.errors.count, "error") %> prohibited this meme from being saved:</h2>
+
+      <ul>
+      <% meme.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.input :image %>
+    <%= f.input :view_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
