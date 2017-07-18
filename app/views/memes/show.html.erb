@@ -5,5 +5,10 @@
   <%= @meme.caption %>
 </p>
 
+<p>
+  <strong>Meme:</strong>
+  <%= image_tag @meme.image.url(:medium) %>
+</p>
+
 <%= link_to 'Edit', edit_meme_path(@meme) %> |
 <%= link_to 'Back', memes_path %>

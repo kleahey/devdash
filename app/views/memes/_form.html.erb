@@ -1,4 +1,4 @@
-<%= form_with(model: meme, local: true) do |form| %>
+<%= simple_form_for @meme do |f| %>
   <% if meme.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(meme.errors.count, "error") %> prohibited this meme from being saved:</h2>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_field :caption, id: :meme_caption %>
+    <%= f.input :caption %>
+    <%= f.input :image %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.button :submit %>
   </div>
 <% end %>

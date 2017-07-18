@@ -13,6 +13,7 @@
   <tbody>
     <% @memes.each do |meme| %>
       <tr>
+        <td><%= image_tag meme.image.url(:medium) %></td>
         <td><%= meme.caption %></td>
         <td><%= link_to 'Show', meme %></td>
         <td><%= link_to 'Edit', edit_meme_path(meme) %></td>
