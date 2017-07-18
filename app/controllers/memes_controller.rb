@@ -4,7 +4,7 @@ class MemesController < ApplicationController
   # GET /memes
   # GET /memes.json
   def index
-    @memes = Meme.all
+    @memes = Meme.order(view_date: :desc)
   end
 
   # GET /memes/1
@@ -69,6 +69,6 @@ class MemesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meme_params
-      params.require(:meme).permit(:caption, :image)
+      params.require(:meme).permit(:image, :view_date)
     end
 end

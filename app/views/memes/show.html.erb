@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Caption:</strong>
-  <%= @meme.caption %>
+  <strong>Meme:</strong>
+  <%= image_tag @meme.image.url(:medium) %>
 </p>
 
 <p>
-  <strong>Meme:</strong>
-  <%= image_tag @meme.image.url(:medium) %>
+  <strong>Date to Display Meme:</strong>
+  <%= @meme.view_date.strftime("%m-%d-%Y") %>
 </p>
 
 <%= link_to 'Edit', edit_meme_path(@meme) %> |
