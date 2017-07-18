@@ -1,0 +1,33 @@
+<% if @meme.any? %>
+  <div class="container">
+    <div class="posts-wrapper row">
+      <% @meme.each do |m| %>
+      <div class="post">
+        <div class="post-head">
+          <div class="name">
+            <h3><%= Date.today.strftime("%A, %B %d, %Y") %></h3>
+          </div>
+        </div>
+        <div class="image center-block">
+          <%= image_tag m.image.url(:medium) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="posts-wrapper row">
+      <div class="post">
+        <div class="post-head">
+          <div class="name">
+            <h3><%= Date.today.strftime("%A, %B %d, %Y") %></h3>
+          </div>
+        </div>
+        <div class="image center-block">
+          <%= image_tag("https://dx72k0ec4onep.cloudfront.net/product/1616/211526721475222702-640x640-823819136117.jpg", height: '640') %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
