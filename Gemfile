@@ -61,3 +61,5 @@ gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'jquery-rails'
 
 gem 'rally_api'
+
+gem 'aws-sdk'
