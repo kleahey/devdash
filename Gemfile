@@ -63,3 +63,5 @@ gem 'jquery-rails'
 gem 'rally_api'
 
 gem 'aws-sdk'
+
+gem 'figaro'
