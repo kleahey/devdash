@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170718194021) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "iterations", force: :cascade do |t|
     t.string "object_id"
     t.datetime "end_date"
