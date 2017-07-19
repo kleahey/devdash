@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718162305) do
+ActiveRecord::Schema.define(version: 20170718194021) do
+
+  create_table "iterations", force: :cascade do |t|
+    t.string "object_id"
+    t.datetime "end_date"
+    t.string "name"
+    t.integer "planned_velocity"
+    t.string "project"
+    t.datetime "start_date"
+    t.string "state"
+    t.string "theme"
+    t.integer "plan_estimate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "memes", force: :cascade do |t|
     t.datetime "created_at", null: false
