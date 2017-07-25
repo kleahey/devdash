@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'burndown/current'
+
   resources :iterations, only: [:index, :show]
   resources :today, only: [:index]
   resources :memes

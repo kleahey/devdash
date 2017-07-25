@@ -1,0 +1,82 @@
+<div class="container rally">
+  <h2>Burndown Chart</h2>
+  <h4>For 2017 Calendar Weeks 49-50, July 5 - July 18</h4>
+</div>
+
+<div class="container rally">
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Aggregated Burndown Chart'
+    },
+    xAxis: {
+        categories: ['Jun-5', 'Jun-6', 'Jun-7', 'Jun-10', 'Jun-11', 'Jun-12', 'Jun-13', 'Jun-14', 'Jun-17', 'Jun-18']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Total ToDo Hours Left'
+        },
+        stackLabels: {
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    legend: {
+        align: 'right',
+        x: -30,
+        verticalAlign: 'top',
+        y: 25,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+    },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        type: 'column',
+        name: 'CA Analytics',
+        data: [7, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    }, {
+        type: 'column',
+        name: 'onTrack',
+        data: [6.5, 6.5, 2, 1, 1, 0, 2, 7, 7, 7]
+    }, {
+        type: 'column',
+        name: 'TCC',
+        data: [46, 48, 48, 45, 0, 0, 0, 0, 0, 0]
+    }, {
+        type: 'column',
+        name: 'CA Web App (Rooster)',
+        data: [19, 46, 74, 88, 83, 70, 62, 59, 54, 27]
+    }, {
+        type: 'line',
+        name: 'Optimal',
+        data: [135, 120, 105, 90, 75, 60, 45, 30, 15, 0]
+    }]
+});
+</script>
+
+</div>
