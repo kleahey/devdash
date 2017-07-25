@@ -10,9 +10,9 @@
         <%= link_to "DevDash", root_path, { class: "nav-item nav-link", style: "color:white;" } %>
       </li>
       <li class="nav-item dropdown">
-        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= link_to "Reports", burndown_current_path, { class: "nav-link dropdown-toggle", style: "color:white", id: "navbarDropdownMenuLink" } %></span>
+        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= link_to "Reports", burndown_index_path, { class: "nav-link dropdown-toggle", style: "color:white", id: "navbarDropdownMenuLink" } %></span>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Burndown", burndown_current_path %>
+          <%= link_to "Burndown", burndown_index_path %>
         </div>
       </li>
     </ul>
