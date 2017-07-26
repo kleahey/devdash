@@ -53,11 +53,11 @@ DAYTO = "2017-07-10T04:00:00Z"
     @array.delete_if { |item| item[:todo]==0 }
 
     @array.each do |a|
-      a = Task.find_or_initialize_by(unformatted_id: a[:id])
-      a.historical_date = DAYFROM
-      a.todo = a[:todo]
-      a.project = a[:project]
-      a.save
+      t = Task.find_or_initialize_by(unformatted_id: a[:id])
+      t.historical_date = DAYFROM
+      t.todo = a[:todo]
+      t.project = a[:project]
+      t.save
     end
 
   end
