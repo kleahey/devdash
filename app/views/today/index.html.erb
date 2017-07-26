@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="image center-block">
-          <%= image_tag m.image.url(:medium) %>
+          <%= image_tag(m.image.url(:medium), :class => "img-fluid") %>
         </div>
       </div>
       <% end %>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="image center-block">
-          <%= image_tag("https://dx72k0ec4onep.cloudfront.net/product/1616/211526721475222702-640x640-823819136117.jpg", height: '640') %>
+          <%= image_tag("https://dx72k0ec4onep.cloudfront.net/product/1616/211526721475222702-640x640-823819136117.jpg", height: '640', :class => "img-fluid") %>
         </div>
       </div>
     </div>

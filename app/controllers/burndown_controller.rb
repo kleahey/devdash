@@ -1,7 +1,10 @@
 class BurndownController < ApplicationController
   def index
-  end
-
-  def current
+    if params[:search].blank?
+      render 'search'
+    else
+      # perform search code goes here
+      render 'index'
+    end
   end
 end
