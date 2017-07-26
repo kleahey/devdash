@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  historical_date: 2017-07-26 12:29:31
+  project: MyString
+  todo: 1.5
+
+two:
+  historical_date: 2017-07-26 12:29:31
+  project: MyString
+  todo: 1.5
