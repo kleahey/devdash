@@ -67,3 +67,5 @@ gem 'figaro'
 gem 'pg'
 
 gem 'rufus-scheduler'
+
+gem 'httparty'
