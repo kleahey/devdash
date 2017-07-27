@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+program_list = [
+  "Rally",
+  "JIRA"
+]
+
+program_list.each do |x|
+  record = Program.find_or_initialize_by(name: x)
+  record.save!
+end
