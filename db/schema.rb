@@ -61,13 +61,4 @@ ActiveRecord::Schema.define(version: 20170727170820) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.datetime "historical_date"
-    t.string "project"
-    t.float "todo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "unformatted_id"
-  end
-
 end
