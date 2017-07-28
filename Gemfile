@@ -67,3 +67,5 @@ gem 'figaro'
 gem 'pg'
 
 gem 'httparty'
+
+gem "font-awesome-rails"
