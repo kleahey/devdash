@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  has_one :project
+  belongs_to :project, primary_key: :assigned_id
 end

@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
-  has_one :program
   has_many :tasks
+
+  belongs_to :program
 end
