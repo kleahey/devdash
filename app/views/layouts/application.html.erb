@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Devdash</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="Site">
+    <header>
+      <%= render "layouts/navbar" %>
+    </header>
+
+    <main class="Site-content">
+      <%= yield %>
+    </main>
+
+    <footer class="container-fluid text-center foot">
+      <%= render "layouts/footer" %>
+    </footer>
+
   </body>
 </html>

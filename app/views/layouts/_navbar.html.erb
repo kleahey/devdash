@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-md navbar-light bg-faded" style="background-color: #981a36">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to image_tag("https://s3-us-west-2.amazonaws.com/kpl.assets/WhiteonMaroon.jpg", height: '50'), root_path, { class: "navbar-brand" } %>
+
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item">
+        <%= link_to "DevDash", root_path, { class: "nav-item nav-link", style: "color:white;" } %>
+      </li>
+      <li class="nav-item dropdown">
+        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= link_to "Reports", burndown_index_path, { class: "nav-link dropdown-toggle", style: "color:white", id: "navbarDropdownMenuLink" } %></span>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Burndown", burndown_index_path, { class: "dropdown-item" } %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
