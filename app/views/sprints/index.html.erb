@@ -20,7 +20,7 @@
         <td><%= sprint.end_date %></td>
         <td><%= link_to 'Show', sprint %></td>
         <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
-        <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (fa_icon "trash"), sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
