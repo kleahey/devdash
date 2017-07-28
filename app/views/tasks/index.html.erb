@@ -1,0 +1,41 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Daily Ending Task Hours for Burndown</h1><br>
+
+<h6><%= @intro_text["intro"].html_safe %></h6><br>
+
+<%= link_to 'New Task', new_task_path %>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="3">Options</th>
+      <th>Date</th>
+      <th>Project</th>
+      <th>Hours Remaining</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= task.historical_date.strftime("%B %d, %Y")%></td>
+        <td><%= task.project.name %></td>
+        <td><%= task.task_hours %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+</div>

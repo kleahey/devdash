@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :burndown, only: [:index] do
-  end
+  resources :tasks
+  resources :burndown, only: [:index]
   resources :sprints
   resources :iterations, only: [:index, :show]
   resources :today, only: [:index]

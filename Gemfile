@@ -65,3 +65,5 @@ gem 'aws-sdk'
 gem 'figaro'
 
 gem 'pg'
+
+gem 'httparty'
