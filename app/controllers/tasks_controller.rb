@@ -5,6 +5,9 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.order(historical_date: :desc)
+
+    @intro = Task.intro
+    @intro_text = JSON.parse(@intro)
   end
 
   # GET /tasks/1
