@@ -2,13 +2,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Daily Ending Task Hours for Burndown</h1>
+<h1>Daily Ending Task Hours for Burndown</h1><br>
 
-<br>
-
-<h6><%= @intro_text["intro"] %></h6>
-
-<br>
+<h6><%= @intro_text["intro"].html_safe %></h6><br>
 
 <%= link_to 'New Task', new_task_path %>
 
