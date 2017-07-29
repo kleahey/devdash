@@ -4,7 +4,7 @@ class SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.all
+    @sprints = Sprint.order(end_date: :desc)
   end
 
   # GET /sprints/1
