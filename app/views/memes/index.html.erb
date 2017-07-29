@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
+
+<p id="notice"><%= notice %></p>
 
 <h1>Memes</h1>
 
@@ -11,7 +11,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Options</th>
       <th>Meme</th>
       <th>Date to Show Meme</th>
     </tr>
@@ -20,9 +20,7 @@
   <tbody>
     <% @memes.each do |meme| %>
       <tr>
-        <td><%= link_to 'Show', meme %></td>
-        <td><%= link_to 'Edit', edit_meme_path(meme) %></td>
-        <td><%= link_to 'Destroy', meme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (fa_icon "eye"), meme %> | <%= link_to (fa_icon "pencil-square"), edit_meme_path(meme) %> | <%= link_to (fa_icon "trash"), meme, method: :delete, data: { confirm: 'Are you sure you want to delete this meme?' } %></td>
         <td><%= image_tag meme.image.url(:medium) %></td>
         <td><%= meme.view_date.strftime("%m-%d-%Y") %></td>
       </tr>

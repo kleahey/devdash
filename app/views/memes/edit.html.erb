@@ -1,6 +1,20 @@
-<h1>Editing Meme</h1>
-
-<%= render 'form', meme: @meme %>
-
-<%= link_to 'Show', @meme %> |
-<%= link_to 'Back', memes_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card input mb-3 text-center">
+        <div class="card-block">
+          <h4 class="card-title">Edit Meme</h4>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <span class="card-text"><%= render 'form', meme: @meme %></span>
+            </div>
+          </div class="col-md-2"></div>
+        </div>
+        <span class="card-text"><%= link_to 'Back', memes_path %></span>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
