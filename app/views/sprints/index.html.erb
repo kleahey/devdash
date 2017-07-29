@@ -1,26 +1,30 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Sprints</h1>
 
-<table>
+<br>
+
+<%= link_to 'New Sprint', new_sprint_path %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Options</th>
+      <th>Sprint Name</th>
       <th>Start date</th>
       <th>End date</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @sprints.each do |sprint| %>
       <tr>
+        <td><%= link_to (fa_icon "pencil-square"), edit_sprint_path(sprint) %> | <%= link_to (fa_icon "trash"), sprint, method: :delete, data: { confirm: 'Are you sure you want to delete this Sprint?' } %></td>
         <td><%= sprint.name %></td>
-        <td><%= sprint.start_date %></td>
-        <td><%= sprint.end_date %></td>
-        <td><%= link_to 'Show', sprint %></td>
-        <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
-        <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= sprint.start_date.strftime("%b %d, %Y") %></td>
+        <td><%= sprint.end_date.strftime("%b %d, %Y") %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Sprint', new_sprint_path %>
+</div>
