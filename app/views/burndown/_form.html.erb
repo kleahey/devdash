@@ -1,10 +1,10 @@
 <div class="container">
 <form>
   <div class="form-group">
-    <%= form_for (:search), :url => burndown_index_path, :method => 'get' do |f| %>
-      <%= f.hidden_field :search, :value => true %>
-      <%= f.collection_select :sprints, Sprint.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
-      <%= f.submit "Generate Chart", class: "btn btn-primary", id: "form_button"%>
+    <%= form_tag(:url => {:controller => "burndown_controller", :action => "index" }, :method => "get") do %>
+      <%= hidden_field :search, :value => true %>
+      <%= select_tag :sprint, options_from_collection_for_select(Sprint.order(end_date: :desc), :id, :name, { :include_blank => true, :class => "form-control" }) %>
+      <%= submit_tag "Generate Chart", class: "btn btn-primary", id: "form_button"%>
     <% end %>
   </div>
 </form>
