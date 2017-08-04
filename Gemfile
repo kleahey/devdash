@@ -69,3 +69,6 @@ gem 'pg'
 gem 'httparty'
 
 gem "font-awesome-rails"
+
+gem "kaminari"
+gem 'bootstrap4-kaminari-views'
