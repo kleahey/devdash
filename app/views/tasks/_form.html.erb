@@ -2,6 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.association :project %>
+    <%= f.association :sprint, collection: Sprint.order(end_date: :desc), prompt: "Select Which Sprint Task Is In:" %>
+    <%= f.input :historical_date, as: :date, :order => [:month, :day, :year] %>
+    <%= f.input :task_hours %>
   </div>
 
   <div class="form-actions">
