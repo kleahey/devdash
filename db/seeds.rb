@@ -30,6 +30,19 @@ project_list.each do |x, y, z|
   record.save!
 end
 
+sprint_list = [
+  [ "2017 Calendar Weeks 49-50", "2017-07-05", "2017-07-18" ],
+  [ "2017 Calendar Weeks 51-52", "2017-07-19", "2017-08-01" ],
+  [ "2018 Calendar Weeks 1-2", "2017-08-02", "2017-08-15" ]
+]
+
+sprint_list.each do |x, y, z|
+  record = Sprint.find_or_initialize_by(name: x)
+  record.start_date = y
+  record.end_date = z
+  record.save!
+end
+
 task_list = [
   [ 1, 41877373746, "2017-07-06T03:59:59Z", 19, 1 ],
   [ 2, 49069534069, "2017-07-06T03:59:59Z", 46, 1 ],
@@ -79,18 +92,5 @@ task_list.each do |w, x, y, z, a|
   record.historical_date = y
   record.task_hours = z
   record.sprint_id = a
-  record.save!
-end
-
-sprint_list = [
-  [ "2017 Calendar Weeks 49-50", "2017-07-05", "2017-07-18" ],
-  [ "2017 Calendar Weeks 51-52", "2017-07-19", "2017-08-01" ],
-  [ "2018 Calendar Weeks 1-2", "2017-08-02", "2017-08-15" ]
-]
-
-sprint_list.each do |x, y, z|
-  record = Sprint.find_or_initialize_by(name: x)
-  record.start_date = y
-  record.end_date = z
   record.save!
 end
