@@ -1,6 +1,7 @@
 class BurndownController < ApplicationController
+
   def index
-    @title = Sprint.all
+    @title = Sprint.find_by_id(params[:sprint])
     @dates = Task.select("date(historical_date) as date").order("date(historical_date)").group("date(historical_date)")
     @webapp = Task.select("task_hours as hours").where("project_id = 41877373746")
     @tcc = Task.select("task_hours as hours").where("project_id = 49069534069")
@@ -12,5 +13,13 @@ class BurndownController < ApplicationController
       # perform search code goes here
       render 'index'
     end
+
   end
+
+  private
+
+  def sprint_params
+    params.require(:sprint).permit(:id, :name, :start_date, :end_date)
+  end
+
 end
