@@ -4,7 +4,15 @@
 
 <h1>Memes</h1>
 
-<%= link_to 'New Meme', new_meme_path %>
+</br>
+
+<%= paginate @memes, theme: 'twitter-bootstrap-4' %>
+
+</br>
+
+<div class="text-center">
+  <%= link_to 'New Meme', new_meme_path, class: "btn btn-outline-primary" %>
+</div>
 
 </br>
 
@@ -27,6 +35,10 @@
     <% end %>
   </tbody>
 </table>
+
+</br>
+
+<%= paginate @memes, theme: 'twitter-bootstrap-4' %>
 
 </br>
 
