@@ -72,3 +72,5 @@ gem "font-awesome-rails"
 
 gem "kaminari"
 gem 'bootstrap4-kaminari-views'
+
+gem 'rspec-rails', '~> 3.5'
