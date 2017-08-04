@@ -7,7 +7,7 @@ class CreateTasks < ActiveRecord::Migration[5.1]
 
       t.timestamps
 
-      add_foreign_key :projects, name: :assigned_id
+
     end
   end
 end
