@@ -2,9 +2,7 @@
   <h2>Burndown Chart</h2>
   <h4>
     For
-    <% @title.each do |title| %>
-      <%= title.name %>, <%= title.start_date.strftime("%b %d") %> - <%= title.end_date.strftime("%b %d") %>
-    <% end %>
+      <%= @title.name %>, <%= @title.start_date.strftime("%b %d") %> - <%= @title.end_date.strftime("%b %d") %>
   </h4>
 </div>
 
