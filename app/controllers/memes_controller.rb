@@ -28,10 +28,10 @@ class MemesController < ApplicationController
 
     respond_to do |format|
       if @meme.save
-        format.html { redirect_to @meme, notice: 'Meme was successfully created.' }
+        format.html { redirect_to @meme, :flash => { :success => "Meme was successfully posted." } }
         format.json { render :show, status: :created, location: @meme }
       else
-        format.html { render :new }
+        format.html { redirect_to @meme, :flash => { :error => "You must attach an image!" } }
         format.json { render json: @meme.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +42,10 @@ class MemesController < ApplicationController
   def update
     respond_to do |format|
       if @meme.update(meme_params)
-        format.html { redirect_to @meme, notice: 'Meme was successfully updated.' }
+        format.html { redirect_to @meme, :flash => { :success => "Meme was successfully updated." } }
         format.json { render :show, status: :ok, location: @meme }
       else
-        format.html { render :edit }
+        format.html { redirect_to @meme, :flash => { :error => "You must attach an image!" } }
         format.json { render json: @meme.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +56,7 @@ class MemesController < ApplicationController
   def destroy
     @meme.destroy
     respond_to do |format|
-      format.html { redirect_to memes_url, notice: 'Meme was successfully destroyed.' }
+      format.html { redirect_to memes_url, notice: 'Meme was successfully deleted.' }
       format.json { head :no_content }
     end
   end
