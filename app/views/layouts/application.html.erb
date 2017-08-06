@@ -18,6 +18,9 @@
     </header>
 
     <main class="Site-content">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+      <% end %>
       <%= yield %>
     </main>
 
