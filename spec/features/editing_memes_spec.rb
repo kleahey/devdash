@@ -13,7 +13,7 @@ require 'helpers/helpers.rb'
 
 feature 'Editing memes' do
   background do
-    meme = create(:meme, :view_date => Date.today)
+    meme = create(:meme, :view_date => Time.zone.today)
 
     visit memes_path
     find('i.fa.fa-eye').click

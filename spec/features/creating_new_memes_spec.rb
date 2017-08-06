@@ -13,16 +13,16 @@ feature 'Creating memes' do
     visit '/memes'
     click_link 'New Meme'
     attach_file('Image', "spec/files/images/meme.png")
-    select_date( Date.today , :from => "meme_view_date")
+    select_date( Time.zone.today , :from => "meme_view_date")
     click_button 'Create Meme'
-    expect(page).to have_content(Date.today.strftime("%B %d, %Y"))
+    expect(page).to have_content(Time.zone.today.strftime("%B %d, %Y"))
     expect(page).to have_css("img[src*='meme.png']")
     expect(page).to have_content("Meme was successfully posted.")
   end
   it 'needs an image to create a post' do
     visit '/memes'
     click_link 'New Meme'
-    select_date( Date.today , :from => "meme_view_date")
+    select_date( Time.zone.today , :from => "meme_view_date")
     click_button 'Create Meme'
     expect(page).to have_content("You must attach an image!")
   end
