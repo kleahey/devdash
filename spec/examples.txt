@@ -1,0 +1,6 @@
+example_id                                         | status | run_time        |
+-------------------------------------------------- | ------ | --------------- |
+./spec/features/creating_new_memes_spec.rb[1:1]    | passed | 0.50214 seconds |
+./spec/features/creating_new_memes_spec.rb[1:2]    | passed | 0.66572 seconds |
+./spec/features/displaying_today_meme_spec.rb[1:1] | passed | 0.3934 seconds  |
+./spec/features/editing_memes_spec.rb[1:1]         | passed | 0.69998 seconds |
