@@ -16,7 +16,7 @@ feature 'Deleting memes' do
   scenario 'Can delete a meme', :js => true do
     meme = create(:meme, :view_date => Time.zone.today)
 
-    visit memes_path
+    visit '/memes'
 
     page.accept_confirm do
       find('.fa.fa-trash').click
