@@ -41,6 +41,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec_junit_formatter'
   gem 'database_cleaner'
+  gem 'faker', '~> 1.8.4'
   gem 'chromedriver-helper' unless ENV.key?('CIRCLECI')
 end
 
