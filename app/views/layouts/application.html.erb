@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Devdash</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DevDash</title>
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
   </head>
 
-  <body class="Site">
-    <header>
-      <%= render "layouts/navbar" %>
-    </header>
+  <body>
 
-    <main class="Site-content">
+      <%= render "layouts/navbar" %>
+
+      <div class="right_col" role="main">
+
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
       <% end %>
-      <%= yield %>
-    </main>
 
-    <footer class="container-fluid text-center foot">
-      <%= render "layouts/footer" %>
-    </footer>
+      <%= yield %>
+
+      </div>
 
   </body>
 </html>
