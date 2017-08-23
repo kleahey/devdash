@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'scdash/show'
+
   resources :tasks
   resources :burndown, only: [:index]
   resources :sprints

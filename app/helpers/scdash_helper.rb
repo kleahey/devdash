@@ -1,0 +1,2 @@
+module ScdashHelper
+end
