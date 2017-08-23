@@ -61,7 +61,7 @@ gem 'paperclip'
 
 gem 'simple_form'
 
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 gem 'rally_api'
@@ -78,3 +78,7 @@ gem "font-awesome-rails"
 
 gem "kaminari"
 gem 'bootstrap4-kaminari-views'
+
+gem 'gentelella-rails'
+
+gem 'popper_js'

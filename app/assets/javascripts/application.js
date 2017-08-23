@@ -10,9 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery3
+//= require gentelella
+//= require gentelella-custom
 //= require popper
 //= require bootstrap
+//= require bootstrap-sprockets
+//= require popper
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
