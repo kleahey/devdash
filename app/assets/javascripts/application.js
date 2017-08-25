@@ -17,6 +17,7 @@
 //= require jquery/jquery.cookie.js
 //= require jquery/jquery.nanoscroller.min.js
 //= require jquery-numberAnimate/jquery.animateNumbers.js
+//= require jquery-scrollbar/jquery.scrollbar.min.js
 //= require jquery-autonumeric/autoNumeric.js
 //= require jquery-block-ui/jqueryblockui.js
 //= require jquery-polymaps/polymaps.min.js
