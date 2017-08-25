@@ -4,7 +4,7 @@ class MemesController < ApplicationController
   # GET /memes
   # GET /memes.json
   def index
-    @memes = Meme.order(view_date: :desc).page params[:page]
+    @memes = Meme.order(view_date: :desc)
   end
 
   # GET /memes/1

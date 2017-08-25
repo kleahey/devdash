@@ -3,6 +3,7 @@
   <head>
     <title>Devdash</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,21 +13,18 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
   </head>
 
-  <body class="Site">
-    <header>
+  <body class="">
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse ">
       <%= render "layouts/navbar" %>
-    </header>
+    </div>
+    <!-- END HEADER -->
 
-    <main class="Site-content">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
-      <% end %>
+    <!-- BEGIN CONTENT -->
+    <div class="page-container row-fluid">
+      <%= render "layouts/sidebar" %>
       <%= yield %>
-    </main>
-
-    <footer class="container-fluid text-center foot">
-      <%= render "layouts/footer" %>
-    </footer>
-
+    </div>
+    <!-- END CONTENT -->
   </body>
 </html>

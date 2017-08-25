@@ -12,8 +12,26 @@
  *
  */
 
-@import "bootstrap";
+@import "jquery-ui/jquery-ui-1.10.1.custom.min.scss";
+@import "bootstrapv3/bootstrap.scss";
+@import "bootstrapv3/bootstrap-theme.scss";
+@import "bootstrap/bootstrap-responsive.min.scss";
+@import "bootstrap/bootstrap.min.scss";
+@import "webarch/mixins.scss";
+@import "webarch/responsive.scss";
+@import "webarch/style.scss";
+@import "webarch/modules.scss";
 @import "font-awesome";
+@import "wysi/wysi.scss";
+@import "uniform/uniform.default.scss";
+@import "animate.min.scss";
+@import "bootstrap-checkbox/bootstrap-checkbox.scss";
+@import "bootstrap-clockpicker/bootstrap-clockpicker.scss";
+@import "bootstrap-clockpicker/jquery-clockpicker.scss";
+@import "bootstrap-slider/slider.scss";
+@import "bootstrap-colorpicker/bootstrap-colorpicker.scss";
+@import "bootstrap-wysihtml5/bootstrap-wysihtml5.scss";
+@import "bootstrap-wysihtml5/wysiwyg-color.scss";
 
 .pagination {
    justify-content: center;

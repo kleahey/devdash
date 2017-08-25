@@ -61,9 +61,6 @@ gem 'paperclip'
 
 gem 'simple_form'
 
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'jquery-rails'
-
 gem 'rally_api'
 
 gem 'aws-sdk'
@@ -75,6 +72,3 @@ gem 'pg'
 gem 'httparty'
 
 gem "font-awesome-rails"
-
-gem "kaminari"
-gem 'bootstrap4-kaminari-views'
