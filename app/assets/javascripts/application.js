@@ -35,6 +35,8 @@
 //= require breakpoints/breakpoints.js
 //= require clockface/clockface.js
 //= require fancybox/jquery.fancybox.pack.js
+//= require fullcalendar/fullcalendar.js
+//= require fullcalendar/gcal.js
 //= require data-tables/DT_bootstrap.js
 //= require data-tables/jquery.dataTables.js
 //= require datatables-responsive/datatables.responsive.js
