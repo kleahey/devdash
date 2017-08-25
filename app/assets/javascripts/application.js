@@ -18,6 +18,8 @@
 //= require jquery/jquery.nanoscroller.min.js
 //= require jquery-autonumeric/autoNumeric.js
 //= require jquery-block-ui/jqueryblockui.js
+//= require mapplic/jquery.easing.js
+//= require mapplic/jquery.mousewheel.js
 //= require bootstrapv3/bootstrap.js
 //= require bootstrapv3/npm.js
 //= require bootstrap/bootstrap.min.js
@@ -34,6 +36,9 @@
 //= require bootstrap-timepicker/bootstrap-timepicker.js
 //= require bootstrap-wizard/jquery.bootstrap.wizard.min.js
 //= require bootstrap-select2/select2.js
+//= require mapplic/mapplic.js
+//= require mapplic/hammer.js
+//= require mapplic/html5shiv.js
 //= require breakpoints/breakpoints.js
 //= require clockface/clockface.js
 //= require fancybox/jquery.fancybox.pack.js
