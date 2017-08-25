@@ -68,5 +68,6 @@
 //= require modernizer/modernizr.js
 //= require shape-hover/hovers.js
 //= require shape-hover/snap.svg-min.js
+//= require select2/select2.min.js
 //= require turbolinks
 //= require_tree .
