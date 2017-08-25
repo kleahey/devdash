@@ -17,6 +17,7 @@
 //= require jquery/jquery.cookie.js
 //= require jquery/jquery.nanoscroller.min.js
 //= require jquery-autonumeric/autoNumeric.js
+//= require jquery-block-ui/jqueryblockui.js
 //= require bootstrapv3/bootstrap.js
 //= require bootstrapv3/npm.js
 //= require bootstrap/bootstrap.min.js
