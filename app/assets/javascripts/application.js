@@ -32,6 +32,8 @@
 //= require data-tables/jquery.dataTables.js
 //= require datatables-responsive/datatables.responsive.js
 //= require datatables-responsive/lodash.min.js
+//= require dropzone/dropzone-amd-module.js
+//= require dropzone/dropzone.js
 //= require webarch/webarch.js
 //= require skycons/skycons.js
 //= require uniform/jquery.uniform.min.js
