@@ -20,6 +20,7 @@
 //= require jquery-block-ui/jqueryblockui.js
 //= require jquery-polymaps/polymaps.min.js
 //= require jquery-lazyload/jquery.lazyload.min.js
+//= require jquery-knob/jquery.knob.js
 //= require mapplic/jquery.easing.js
 //= require mapplic/jquery.mousewheel.js
 //= require bootstrapv3/bootstrap.js
