@@ -30,6 +30,8 @@
 //= require bootstrap-wysihtml5/wysihtml5-0.3.0.js
 //= require data-tables/DT_bootstrap.js
 //= require data-tables/jquery.dataTables.js
+//= require datatables-responsive/datatables.responsive.js
+//= require datatables-responsive/lodash.min.js
 //= require webarch/webarch.js
 //= require skycons/skycons.js
 //= require uniform/jquery.uniform.min.js
