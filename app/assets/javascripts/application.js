@@ -32,6 +32,7 @@
 //= require bootstrap-timepicker/bootstrap-timepicker.js
 //= require bootstrap-wizard/jquery.bootstrap.wizard.min.js
 //= require bootstrap-select2/select2.js
+//= require breakpoints/breakpoints.js
 //= require data-tables/DT_bootstrap.js
 //= require data-tables/jquery.dataTables.js
 //= require datatables-responsive/datatables.responsive.js
