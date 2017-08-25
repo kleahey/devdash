@@ -66,5 +66,7 @@
 //= require uniform/jquery.uniform.min.js
 //= require wysi/bootstrap-wysiwyg.js
 //= require modernizer/modernizr.js
+//= require shape-hover/hovers.js
+//= require shape-hover/snap.svg-min.js
 //= require turbolinks
 //= require_tree .
