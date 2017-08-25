@@ -40,6 +40,7 @@
 //= require gmaps/gmaps.js
 //= require gmaps/google_maps_api.js
 //= require gritter/jquery.gritter.js
+//= require ios-switch/ios7-switch.js
 //= require data-tables/DT_bootstrap.js
 //= require data-tables/jquery.dataTables.js
 //= require datatables-responsive/datatables.responsive.js
