@@ -36,6 +36,7 @@
 //= require dropzone/dropzone.js
 //= require chartjs/Chart.js
 //= require ckeditor/ckeditor.js
+//= require chosen/chosen.jquery.min.js
 //= require webarch/webarch.js
 //= require skycons/skycons.js
 //= require uniform/jquery.uniform.min.js
