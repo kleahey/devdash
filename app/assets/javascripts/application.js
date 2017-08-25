@@ -40,6 +40,7 @@
 //= require mapplic/hammer.js
 //= require mapplic/html5shiv.js
 //= require pace/pace.min.js
+//= require planetary/planetaryjs.min.js
 //= require breakpoints/breakpoints.js
 //= require clockface/clockface.js
 //= require fancybox/jquery.fancybox.pack.js
