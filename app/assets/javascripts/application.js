@@ -42,6 +42,7 @@
 //= require pace/pace.min.js
 //= require planetary/planetaryjs.min.js
 //= require breakpoints/breakpoints.js
+//= require respond/respond.js
 //= require clockface/clockface.js
 //= require fancybox/jquery.fancybox.pack.js
 //= require fullcalendar/fullcalendar.js
