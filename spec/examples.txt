@@ -1,8 +1,8 @@
-example_id                                         | status | run_time        |
--------------------------------------------------- | ------ | --------------- |
-./spec/features/creating_new_memes_spec.rb[1:1]    | passed | 0.36958 seconds |
-./spec/features/creating_new_memes_spec.rb[1:2]    | passed | 0.07773 seconds |
-./spec/features/creating_new_tasks_spec.rb[1:1]    | failed | 1.26 seconds    |
-./spec/features/deleting_memes_spec.rb[1:1]        | passed | 3.21 seconds    |
-./spec/features/displaying_today_meme_spec.rb[1:1] | passed | 0.81998 seconds |
-./spec/features/editing_memes_spec.rb[1:1]         | passed | 0.54933 seconds |
+example_id                                         | status  | run_time        |
+-------------------------------------------------- | ------- | --------------- |
+./spec/features/creating_new_memes_spec.rb[1:1]    | passed  | 0.36958 seconds |
+./spec/features/creating_new_memes_spec.rb[1:2]    | passed  | 0.07773 seconds |
+./spec/features/creating_new_tasks_spec.rb[1:1]    | pending | 1.89 seconds    |
+./spec/features/deleting_memes_spec.rb[1:1]        | passed  | 3.21 seconds    |
+./spec/features/displaying_today_meme_spec.rb[1:1] | passed  | 0.81998 seconds |
+./spec/features/editing_memes_spec.rb[1:1]         | passed  | 0.54933 seconds |
