@@ -19,6 +19,7 @@
 //= require jquery-numberAnimate/jquery.animateNumbers.js
 //= require jquery-scrollbar/jquery.scrollbar.min.js
 //= require jquery-datatable/jquery.dataTables.js
+//= require jquery-fittext/jquery.fittext.js
 //= require jquery-autonumeric/autoNumeric.js
 //= require jquery-block-ui/jqueryblockui.js
 //= require jquery-polymaps/polymaps.min.js
