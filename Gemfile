@@ -72,3 +72,7 @@ gem 'pg'
 gem 'httparty'
 
 gem "font-awesome-rails"
+
+gem "xml-simple"
+
+gem 'rufus-scheduler'
