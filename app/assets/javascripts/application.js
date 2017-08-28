@@ -13,6 +13,7 @@
 //= require jquery/jquery-1.11.3.min.js
 //= require jquery-ui/jquery-ui-1.10.1.custom.min.js
 //= require rails-ujs
+//= require datatables.js
 //= require jquery/jquery.blockui.js
 //= require jquery/jquery.cookie.js
 //= require jquery/jquery.nanoscroller.min.js
@@ -31,7 +32,8 @@
 //= require jquery-sparkline/jquery-sparkline.js
 //= require jquery-validation/jquery.validate.js
 //= require jquery-validation/additional-methods.js
-//= require bootstrap-sprockets
+//= require bootstrapv3/bootstrap.js
+//= require bootstrapv3/bootstrap.min.js
 //= require owl-carousel/owl.carousel.js
 //= require mapplic/jquery.easing.js
 //= require mapplic/jquery.mousewheel.js
