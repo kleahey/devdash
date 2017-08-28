@@ -28,6 +28,7 @@
 //= require jquery-lazyload/jquery.lazyload.min.js
 //= require jquery-knob/jquery.knob.js
 //= require jquery-unveil/jquery.unveil.min.js
+//= require jquery-slider/jquery.sidr.min.js
 //= require owl-carousel/owl.carousel.js
 //= require mapplic/jquery.easing.js
 //= require mapplic/jquery.mousewheel.js
