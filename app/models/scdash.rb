@@ -22,12 +22,4 @@ class Scdash < ApplicationRecord
   def self.rec_chat
     Parature.solved_rec_chat
   end
-
-  def self.total_chat
-    Parature.total_solved_chats
-  end
-
-  def self.interactions
-    Parature.total_interactions
-  end
 end

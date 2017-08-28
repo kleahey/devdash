@@ -4,7 +4,6 @@ require 'net/https'
 require 'xmlsimple'
 require 'pp'
 require 'time'
-require 'rufus-scheduler'
 
 $configuration =
 {
@@ -68,52 +67,32 @@ class Parature
 
   def self.active_app_tickets
     # Get active Applicant tickets
-    dataApp = applicant_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
-    @activeAppTickets = dataApp['total'].to_i - 6
+    applicant_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
   end
 
   def self.solved_app_tickets
     # Get Total Solved Applicant Tickets for Today
-    dataSolvedApp = applicant_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T05:00:00Z", :get, nil)
-    @solvedAppTickets = dataSolvedApp['total'].to_i
+    applicant_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z", :get, nil)
   end
 
   def self.solved_app_chat
-    configuration = @configuration
     # Get Total Solved Applicant Chats for Today
-    dataAppChat = applicant_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T05:00:00Z&Date_Ended_min_=_today_", :get, nil)
-    @solvedAppChat = dataAppChat['total'].to_i
+    applicant_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&Date_Ended_min_=_today_", :get, nil)
   end
 
   def self.active_rec_tickets
-    configuration = @configuration
     # Get active Recommender tickets
-    dataRec = recommender_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
-    @activeRecTickets = dataRec['total'].to_i - 4
+    recommender_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
   end
 
   def self.solved_rec_tickets
-    configuration = @configuration
     # Get Total Solved Recommender Tickets for Today
-    dataSolvedRec = recommender_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=13&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T05:00:00Z", :get, nil)
-    @solvedRecTickets = dataSolvedRec['total'].to_i
+    recommender_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=13&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z", :get, nil)
   end
 
   def self.solved_rec_chat
-    configuration = @configuration
     # Get Total Recommender Chats for Today
-    dataRecChat = recommender_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T05:00:00Z&Date_Ended_min_=_today_", :get, nil)
-    solvedRecChat = dataRecChat['total'].to_i
-  end
-
-  def self.total_solved_chats
-    # Calculate the Total Number of Today's Chats
-    @totalSolvedChats = solvedAppChat + solvedRecChat
-  end
-
-  def self.total_interations
-    # Calculate the Total Number of Today's Interactions
-    @totalInteractions = solvedAppTickets + solvedRecTickets + totalSolvedChats
+    recommender_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&Date_Ended_min_=_today_", :get, nil)
   end
 
 end
