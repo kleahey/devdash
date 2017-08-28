@@ -18,7 +18,7 @@ $configuration =
 def applicant_requests(configuration, request_params, request_method, request_body = nil)
 
   # Build the host name and port portion of the URL that will be used by all future requests.
-  base_url = URI.parse("https://#{$configuration[:hostname]}/")
+  base_url = URI.parse("https://#{configuration[:hostname]}/")
 
   # Create a request object and configure it to use HTTPS.
   request = Net::HTTP.new(base_url.host, base_url.port)
@@ -27,7 +27,7 @@ def applicant_requests(configuration, request_params, request_method, request_bo
 
   # Assemble the request URL from the connection parameters (fixed for each request)
   # request specific parameters and then append the authentication token.
-  request_url = "/api/v1/#{$configuration[:account_id]}/#{configuration[:applicant_id]}/#{request_params}&_token_=#{configuration[:token]}"
+  request_url = "/api/v1/#{configuration[:account_id]}/#{configuration[:applicant_id]}/#{request_params}&_token_=#{configuration[:token]}"
 
   # If the call provided a request body then convert it from the XmlSimple format of nested hashes
   # and lists to raw xml and then send it with the request. Specify the 'KeepRoot' parameter to
@@ -46,13 +46,32 @@ end
 # Connect to Parature's API for Recommender account
 def recommender_requests(configuration, request_params, request_method, request_body = nil)
 
-  base_url = URI.parse("https://#{$configuration[:hostname]}/")
+  base_url = URI.parse("https://#{configuration[:hostname]}/")
 
   request = Net::HTTP.new(base_url.host, base_url.port)
   request.use_ssl = true
   request.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-  request_url = "/api/v1/#{$configuration[:account_id]}/#{configuration[:recommender_id]}/#{request_params}&_token_=#{configuration[:token]}"
+  request_url = "/api/v1/#{configuration[:account_id]}/#{configuration[:recommender_id]}/#{request_params}&_token_=#{configuration[:token]}"
+
+  args = [request_method, request_url]
+  args << XmlSimple.xml_out(request_body, { 'KeepRoot' => true }) if request_body
+
+  response = request.send(*args)
+
+  XmlSimple.xml_in(response.body, { 'KeepRoot' => false })
+end
+
+# Get applicant ticket spectific information
+def applicant_ticket_request(configuration, ticket_id, request_method, request_body = nil)
+
+  base_url = URI.parse("https://#{configuration[:hostname]}/")
+
+  request = Net::HTTP.new(base_url.host, base_url.port)
+  request.use_ssl = true
+  request.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+  request_url = "/api/v1/#{configuration[:account_id]}/#{configuration[:applicant_id]}/Ticket/#{ticket_id}&_token_=#{configuration[:token]}"
 
   args = [request_method, request_url]
   args << XmlSimple.xml_out(request_body, { 'KeepRoot' => true }) if request_body
@@ -93,6 +112,19 @@ class Parature
   def self.solved_rec_chat
     # Get Total Recommender Chats for Today
     recommender_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&Date_Ended_min_=_today_", :get, nil)
+  end
+
+  def self.solved_app_tickets_by_team_member
+    solved = applicant_requests($configuration, "Ticket?_total_=false&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&_pageSize_=200", :get, nil)
+
+    array = []
+    solved['Ticket'].map do |x|
+      array.push(x["Assigned_To"][0]["Csr"][0]["Full_Name"][0]["content"])
+    end
+
+    counts = Hash.new(0)
+    array.each { |array| counts[array] += 1 }
+    return counts
   end
 
 end

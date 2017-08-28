@@ -8,14 +8,14 @@
     <!-- END PAGE TITLE -->
     <!-- BEGIN PlACE PAGE CONTENT HERE -->
       <div id="container">
-        <div class="row 2col">
-          <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+        <div class="row">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
             <div class="activeApplicant">
               <%= render partial: "active_applicant_tickets" %>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-            <div class="tiles red added-margin">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles red m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TODAY'S SOLVED APPLICANT TICKETS </div>
@@ -23,8 +23,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 spacing-bottom">
-            <div class="tiles green added-margin">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles green m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TOTAL APPLICANT CHATS </div>
@@ -32,8 +32,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="tiles purple added-margin">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles purple m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TOTAL CHATS </div>
@@ -44,9 +44,11 @@
             </div>
           </div>
         </div>
-        <div class="row 2col">
-          <div class="col-md-3 col-sm-6 spacing-bottom">
-            <div class="tiles blue added-margin">
+      </div>
+      <div id="container">
+        <div class="row">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles blue m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> ACTIVE RECOMMENDER TICKETS </div>
@@ -54,8 +56,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="tiles red added-margin">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles red m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TODAY'S SOLVED RECOMMEDNER TICKETS </div>
@@ -65,8 +67,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 spacing-bottom">
-            <div class="tiles green added-margin">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles green m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TOTAL RECOMMENDER CHATS </div>
@@ -74,8 +76,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="tiles purple added-margin">
+          <div class="col-md-3 col-vlg-3 col-sm-6">
+            <div class="tiles purple m-b-10">
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TOTAL INTERACTIONS </div>
@@ -86,13 +88,15 @@
             </div>
           </div>
         </div>
-        <div class="row 2col">
-          <div class="col-md-4">
+      </div>
+      <div id="container">
+        <div class="row">
+          <div class="col-md-4 col-vlg-4 col-sm-12">
             <div class="row">
               <div class="col-md-12">
                 <div class="grid simple ">
                   <div class="grid-title no-border">
-                    <h4>Tickets Answered <span class="semi-bold">Yesterday</span></h4>
+                    <h4>Tickets Answered <span class="semi-bold">Today</span></h4>
                     <div class="tools">
                       <a href="javascript:;" class="collapse"></a>
                       <a href="#grid-config" data-toggle="modal" class="config"></a>
@@ -110,26 +114,14 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Mark</td>
-                          <td>12</td>
-                          <td> <span class="label label-important">ALERT!</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="inline">Jacob </div>
-                          </td>
-                          <td>115</td>
-                          <td><span class="label label-success">GOOD</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Larry</td>
-                          <td>92</td>
-                          <td><span class="label label-success">GOOD</span>
-                          </td>
-                        </tr>
+                        <% @appTicketNameArray.each do |k, v| %>
+                          <tr>
+                            <td><%= k %></td>
+                            <td><%= v %></td>
+                            <td> <span class="label label-success">GOOD</span>
+                            </td>
+                          </tr>
+                        <% end %>
                       </tbody>
                     </table>
                   </div>
