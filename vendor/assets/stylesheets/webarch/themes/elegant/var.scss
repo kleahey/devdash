@@ -1,8 +1,8 @@
-// Webarch Elegant Theme  
+// Webarch Elegant Theme
 // --------------------------------------------------
 // Copyright Reserved Revox - 2014
 // --------------------------------------------------
-$base-img-url: "../../../img";
+$base-img-url: "webarch";
 //Font
 $base-font-family: 'Arial';
 $base-font-family-two: 'Open Sans';
@@ -10,7 +10,7 @@ $base-font-color:#6f7b8a;
 $base-font-size:13px;
 
 
-// Global Color 
+// Global Color
 // --------------------------------------------------
 // Base Grey Guided Color * change only $base-light-default
 // --------------------------------------------------
@@ -61,21 +61,21 @@ $color-info-dark:'';
 $color-info-light:'';
 
 
-// Layout 
+// Layout
 // --------------------------------------------------
 // Sidebar Colors Vars
 // --------------------------------------------------
-//Sidebar top header Background 
+//Sidebar top header Background
 $sidebar-header-color:#323640;
-//Sidebar top header icon background  
+//Sidebar top header icon background
 $sidebar-header-iconset-background:#323640;
 $sidebar-header-iconset-background-active:#323640;
-//Sidebar top icon image path with Retina Option 
+//Sidebar top icon image path with Retina Option
 $sidebar-header-iconset:url("${base-img-url}/icon/top-tray.png") no-repeat;
 $sidebar-header-iconset-2x:url('${base-img-url}/icon/top-trayx2.png') no-repeat;
-//Sidebar background Color 
+//Sidebar background Color
 $sidebar-color:#3d424e;
-//Sidebar Link Font Color 
+//Sidebar Link Font Color
 $sidebar-link-color:#b7b9bd;
 //Sidebar Link Hight light color
 $sidebar-link-hover:$sidebar-color;

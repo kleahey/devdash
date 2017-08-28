@@ -10,12 +10,8 @@
       <div id="container">
         <div class="row 2col">
           <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-            <div class="tiles blue added-margin">
-              <div class="tiles-body">
-                <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
-                <div class="tiles-title"> ACTIVE APPLICANT TICKETS </div>
-                <div class="heading"> <span class="animate-number" data-value="<%= @activeAppTickets %>" data-animation-duration="700">0</span></div>
-              </div>
+            <div class="activeApplicant">
+              <%= render partial: "active_applicant_tickets" %>
             </div>
           </div>
           <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
