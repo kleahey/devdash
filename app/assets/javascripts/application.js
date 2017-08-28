@@ -29,6 +29,8 @@
 //= require jquery-unveil/jquery.unveil.min.js
 //= require jquery-slider/jquery.sidr.min.js
 //= require jquery-sparkline/jquery-sparkline.js
+//= require jquery-validation/jquery.validate.js
+//= require jquery-validation/additional-methods.js
 //= require bootstrap-sprockets
 //= require owl-carousel/owl.carousel.js
 //= require mapplic/jquery.easing.js
