@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require jquery/jquery-1.11.3.min.js
 //= require jquery-ui/jquery-ui-1.10.1.custom.min.js
+//= require rails-ujs
 //= require jquery/jquery.blockui.js
 //= require jquery/jquery.cookie.js
 //= require jquery/jquery.nanoscroller.min.js
@@ -20,7 +20,6 @@
 //= require jquery-scrollbar/jquery.scrollbar.min.js
 //= require jquery-datatable/jquery.dataTables.js
 //= require jquery-fittext/jquery.fittext.js
-//= require jquery-metrojs/MetroJs.js
 //= require jquery-mixitup/jquery.mixitup.min.js
 //= require jquery-autonumeric/autoNumeric.js
 //= require jquery-block-ui/jqueryblockui.js
@@ -29,12 +28,12 @@
 //= require jquery-knob/jquery.knob.js
 //= require jquery-unveil/jquery.unveil.min.js
 //= require jquery-slider/jquery.sidr.min.js
+//= require jquery-sparkline/jquery-sparkline.js
+//= require bootstrap-sprockets
 //= require owl-carousel/owl.carousel.js
 //= require mapplic/jquery.easing.js
 //= require mapplic/jquery.mousewheel.js
-//= require bootstrapv3/bootstrap.js
 //= require bootstrapv3/npm.js
-//= require bootstrap/bootstrap.min.js
 //= require bootstrap-checkbox/bootstrap-checkbox.js
 //= require bootstrap-clockpicker/bootstrap-clockpicker.js
 //= require bootstrap-clockpicker/jquery-clockpicker.js
@@ -81,5 +80,6 @@
 //= require shape-hover/hovers.js
 //= require shape-hover/snap.svg-min.js
 //= require select2/select2.min.js
+//= require jquery-metrojs/MetroJs.js
 //= require turbolinks
 //= require_tree .

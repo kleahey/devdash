@@ -694,7 +694,6 @@ a.full-h,
 .flip-list > li > .ha.flip-back,
 .flip-list > li > .ha.flip-back img {
   /* override the values set for margin and ensure the back tile is visible  */
-
   margin: 0px !important;
   height: 100%;
 }
@@ -3413,7 +3412,6 @@ html body .black.accentBorderTop {
   display: block;
   font-size: 32px;
   /* add some extra padding to make it easier to touch */
-
   height: 60px;
   position: absolute;
   right: 8px;
@@ -3536,7 +3534,6 @@ html body .black.accentBorderTop {
 }
 .small .appbar-buttons {
   /* default width is 3 buttons */
-
   width: 156px;
 }
 .small .appbar-buttons a > img {
@@ -3580,7 +3577,6 @@ html body .black.accentBorderTop {
   padding: 0 0 2px;
   text-align: right;
   /* default width is 3 buttons */
-
   width: 252px;
 }
 .appbar-buttons.one {

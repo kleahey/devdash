@@ -23,7 +23,6 @@
 @import "jquery-datatable/demo_page.scss";
 @import "jquery-datatable/demo_table_jui.scss";
 @import "jquery-datatable/demo_table.scss";
-@import "jquery-metrojs/MetroJs.scss";
 @import "jquery-slider/jquery.sidr.dark.scss";
 @import "jquery-slider/jquery.sidr.light.scss";
 @import "bootstrapv3/bootstrap.scss";
@@ -37,7 +36,6 @@
 @import "font-awesome";
 @import "wysi/wysi.scss";
 @import "uniform/uniform.default.scss";
-@import "animate.min.scss";
 @import "bootstrap-checkbox/bootstrap-checkbox.scss";
 @import "bootstrap-clockpicker/bootstrap-clockpicker.scss";
 @import "bootstrap-clockpicker/jquery-clockpicker.scss";
@@ -69,6 +67,8 @@
 @import "select2/select2_metro.scss";
 @import "owl-carousel/owl.carousel.scss";
 @import "owl-carousel/owl.theme.scss";
+@import "jquery-metrojs/MetroJs.scss";
+@import "animate.min.scss";
 
 .pagination {
    justify-content: center;

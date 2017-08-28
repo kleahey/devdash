@@ -898,6 +898,8 @@ var privMethods = {
 			var data = $tile.data("LiveTile"),
                 isOver = false,
                 isPending = false,
+				touchStartedOver = false,
+				touchStartedOut = false,
                 pauseIn = (data.pauseOnHoverEvent == "both" || data.pauseOnHoverEvent == "mouseover" || data.pauseOnHoverEvent == "mouseenter"),
                 pauseOut = (data.pauseOnHoverEvent == "both" || data.pauseOnHoverEvent == "mouseout" || data.pauseOnHoverEvent == "mouseleave");
 			data.pOnHoverMethods = {
@@ -909,7 +911,11 @@ var privMethods = {
 						});
 					}
 				},
-				over: function (e) {
+				over: function (e, isTouch) {
+					isTouch = typeof (isTouch) == "undefined" ? false : isTouch;
+					if (!isTouch && touchStartedOver) {
+						return;
+					}
 					if (isOver || isPending)
 						return;
 					if (data.runEvents) {
@@ -918,11 +924,16 @@ var privMethods = {
 							isPending = false;
 							if (pauseOut)
 								isOver = true;
+							touchStartedOver = false;
 							data.pOnHoverMethods.pause();
 						}, data.onHoverDelay);
 					}
 				},
-				out: function (e) {
+				out: function (e, isTouch) {
+					isTouch = typeof (isTouch) == "undefined" ? false : isTouch;
+					if (!isTouch && touchStartedOut == true) {
+						return;
+					}
 					if (isPending) {
 						window.clearTimeout(data.eventTimeout);
 						isPending = false;
@@ -939,6 +950,7 @@ var privMethods = {
 						data.pOnHoverMethods.pause();
 					}
 					isOver = false;
+					touchStartedOut = false;
 				}
 			};
 			if (!metrojs.capabilities.canTouch) {
@@ -947,24 +959,38 @@ var privMethods = {
 				if (pauseOut)
 					$tile.bind("mouseout.liveTile", data.pOnHoverMethods.out);
 			} else {
-				if (window.navigator.msPointerEnabled) { // pointer
-					if (pauseIn)
-						$tile[0].addEventListener('MSPointerOver', data.pOnHoverMethods.over, false);
-					if (pauseOut)
-						$tile[0].addEventListener('MSPointerOut', data.pOnHoverMethods.out, false);
+				if (window.PointerEvent || window.MSPointerEvent) { // pointer
+					var eventPrefix = window.MSPointerEvent ? "MS" : "";
+					if (pauseIn) {
+						$tile[0].addEventListener(eventPrefix + 'PointerOver', data.pOnHoverMethods.over, false);
+					}
+					if (pauseOut) {
+						$tile[0].addEventListener(eventPrefix + 'PointerOut', data.pOnHoverMethods.out, false);
+					}
 				} else { // touch events
-					if (pauseIn)
-						$tile.bind("touchstart.liveTile", data.pOnHoverMethods.over);
-					if (pauseOut)
-						$tile.bind("touchend.liveTile", data.pOnHoverMethods.out);
+					if (pauseIn) {
+						$tile.bind("mouseover.liveTile", data.pOnHoverMethods.over);
+						$tile.bind("touchstart.liveTile", function (event) {
+							touchStartedOver = false;
+							data.pOnHoverMethods.over.apply($tile[0], [event, true]);
+						});
+					}
+					if (pauseOut) {
+						$tile.bind("mouseout.liveTile", data.pOnHoverMethods.out);
+						$tile.bind("touchend.liveTile", function (event) {
+							touchStartedOut = false;
+							data.pOnHoverMethods.out.apply($tile[0], [event, true]);
+						});
+					}
 				}
 			}
 		})();
 	},
 	unbindMsPauseOnHover: function ($tile, data) {
-		if (typeof (data.pOnHoverMethods) !== "undefined" && window.navigator.msPointerEnabled) {
-			$tile[0].removeEventListener('MSPointerOver', data.pOnHoverMethods.over, false);
-			$tile[0].removeEventListener('MSPointerOut', data.pOnHoverMethods.out, false);
+		if (typeof (data.pOnHoverMethods) !== "undefined" && (window.PointerEvent || window.MSPointerEvent)) {
+			var eventPrefix = window.MSPointerEvent ? "MS" : "";
+			$tile[0].removeEventListener(eventPrefix + 'PointerOver', data.pOnHoverMethods.over, false);
+			$tile[0].removeEventListener(eventPrefix + 'PointerOut', data.pOnHoverMethods.out, false);
 		}
 	},
 	bindPlayOnHover: function ($tile, data) {
@@ -972,10 +998,16 @@ var privMethods = {
 		(function () {
 			var isOver = false,
                 isPending = false,
+				touchStartedOver = false,
+				touchStartedOut = false,
                 playIn = (data.playOnHoverEvent == "both" || data.playOnHoverEvent == "mouseover" || data.playOnHoverEvent == "mouseenter"),
                 playOut = (data.playOnHoverEvent == "both" || data.playOnHoverEvent == "mouseout" || data.playOnHoverEvent == "mouseleave");
 			data.onHoverMethods = {
-				over: function (event) {
+				over: function (event, isTouch) {
+					isTouch = typeof (isTouch) == "undefined" ? false : isTouch;
+					if (!isTouch && touchStartedOver) {
+						return;
+					}
 					if (isOver || isPending || (data.bounce && data.bounceMethods.down != "no"))
 						return;
 					// if startNow is set use the opposite of isReversed so we're in sync            
@@ -988,10 +1020,15 @@ var privMethods = {
 							if (playOut)
 								isOver = true;
 							pubMethods["play"].apply($tile[0], [0]);
+							touchStartedOver = false;
 						}, data.onHoverDelay);
 					}
 				},
-				out: function (event) {
+				out: function (event, isTouch) {
+					isTouch = typeof(isTouch) == "undefined" ? false : isTouch;
+					if (!isTouch && touchStartedOut == true) {
+						return;
+					}
 					if (isPending) {
 						window.clearTimeout(data.eventTimeout);
 						isPending = false;
@@ -1008,6 +1045,7 @@ var privMethods = {
 						if (data.runEvents && rev) {
 							pubMethods["play"].apply($tile[0], [0]);
 						}
+						touchStartedOut = false;
 						isOver = false;
 					}, data.speed + data.onHoverOutDelay);
 				}
@@ -1018,25 +1056,39 @@ var privMethods = {
 				if (playOut)
 					$tile.bind('mouseleave.liveTile', data.onHoverMethods.out);
 			} else {
-				if (window.navigator.msPointerEnabled) { // pointer
-					if (playIn)
-						$tile[0].addEventListener('MSPointerDown', data.onHoverMethods.over, false);
+				if (window.PointerEvent || window.MSPointerEvent) { // pointer
+					var eventPrefix = window.MSPointerEvent ? "MS" : "";
+					if (playIn) {
+						//$tile[0].addEventListener(eventPrefix + 'PointerDown', data.onHoverMethods.over, false);
+						$tile[0].addEventListener(eventPrefix + 'PointerEnter', data.onHoverMethods.over, false);
+					}
 					// mouseleave gives a more consistent effect than out when the children are transformed
 					if (playOut)
-						$tile.bind("mouseleave.liveTile", data.onHoverMethods.out);
+						$tile[0].addEventListener(eventPrefix + 'PointerLeave', data.onHoverMethods.out, false);
 				} else { // touch events
-					if (playIn)
-						$tile.bind("touchstart.liveTile", data.onHoverMethods.over);
-					if (playOut)
-						$tile.bind("touchend.liveTile", data.onHoverMethods.out);
+					if (playIn) {
+						$tile.bind("touchstart.liveTile", function (event) {
+							touchStartedOver = true;
+							data.onHoverMethods.over.apply($tile[0], [event, true]);
+						});
+						$tile.bind("mouseenter.liveTile", data.onHoverMethods.over);
+					}
+					if (playOut) {
+						$tile.bind("touchend.liveTile,touchcancel.liveTile", function (event) {
+							touchStartedOut = false;
+							data.onHoverMethods.out.apply($tile[0], [event, true]);
+						});
+						$tile.bind("mouseleave.liveTile", data.onHoverMethods.out);
+					}
 				}
 
 			}
 		})();
 	},
 	unbindMsPlayOnHover: function ($tile, data) {
-		if (typeof (data.onHoverMethods) !== "undefined" && window.navigator.msPointerEnabled) {
-			$tile[0].removeEventListener('MSPointerDown', data.onHoverMethods.over, false);
+		if (typeof (data.onHoverMethods) !== "undefined" && (window.PointerEvent || window.MSPointerEvent)) {
+			var eventPrefix = window.MSPointerEvent ? "MS" : "";
+			$tile[0].removeEventListener(eventPrefix + 'PointerOver', data.onHoverMethods.over, false);
 		}
 	},
 	bindBounce: function ($tile, data) {
@@ -1153,12 +1205,13 @@ var privMethods = {
 						if (hit == null)
 							data.bounceMethods.down = "no";
 						else {
-							if (window.navigator.msPointerEnabled) {
-								document.addEventListener('MSPointerUp', data.bounceMethods.bounceUp, false);
-								$tile[0].addEventListener('MSPointerUp', data.bounceMethods.bounceUp, false);
-								document.addEventListener('MSPointerCancel', data.bounceMethods.bounceUp, false);
+							if (window.PointerEvent || window.MSPointerEvent) {
+								var eventPrefix = window.MSPointerEvent ? "MS" : "";
+								document.addEventListener(eventPrefix + 'PointerUp', data.bounceMethods.bounceUp, false);
+								$tile[0].addEventListener(eventPrefix + 'PointerUp', data.bounceMethods.bounceUp, false);
+								document.addEventListener(eventPrefix + 'PointerCancel', data.bounceMethods.bounceUp, false);
 								if (data.bounceFollowsMove)
-									$tile[0].addEventListener('MSPointerMove', data.bounceMethods.bounceMove, false);
+									$tile[0].addEventListener(eventPrefix + 'PointerMove', data.bounceMethods.bounceMove, false);
 							} else {
 								$(document).bind("mouseup.liveTile, touchend.liveTile, touchcancel.liveTile, dragstart.liveTile", data.bounceMethods.bounceUp);
 								if (data.bounceFollowsMove) {
@@ -1176,12 +1229,13 @@ var privMethods = {
 					bounceUp: function () {
 						if (data.bounceMethods.down != "no") {
 							data.bounceMethods.unBounce();
-							if (window.navigator.msPointerEnabled) {
-								document.removeEventListener('MSPointerUp', data.bounceMethods.bounceUp, false);
-								$tile[0].removeEventListener('MSPointerUp', data.bounceMethods.bounceUp, false);
-								document.removeEventListener('MSPointerCancel', data.bounceMethods.bounceUp, false);
+							if (window.PointerEvent || window.MSPointerEvent) {
+								var eventPrefix = window.MSPointerEvent ? "MS" : "";
+								document.removeEventListener(eventPrefix + 'PointerUp', data.bounceMethods.bounceUp, false);
+								$tile[0].removeEventListener(eventPrefix + 'PointerUp', data.bounceMethods.bounceUp, false);
+								document.removeEventListener(eventPrefix + 'PointerCancel', data.bounceMethods.bounceUp, false);
 								if (data.bounceFollowsMove)
-									$tile[0].removeEventListener('MSPointerMove', data.bounceMethods.bounceMove, false);
+									$tile[0].removeEventListener(eventPrefix + 'PointerMove', data.bounceMethods.bounceMove, false);
 
 							} else
 								$(document).unbind("mouseup.liveTile, touchend.liveTile, touchcancel.liveTile, dragstart.liveTile", data.bounceMethods.bounceUp);
@@ -1221,11 +1275,13 @@ var privMethods = {
 					}
 				};
 				// IE 10+
-				if (window.navigator.msPointerEnabled) {// touch only -> // && window.navigator.msMaxTouchPoints) {
-					$tile[0].addEventListener('MSPointerDown', data.bounceMethods.bounceDown, false);
+				if (window.PointerEvent || window.MSPointerEvent) {// touch only -> // && window.navigator.msMaxTouchPoints) {
+					var eventPrefix = window.MSPointerEvent ? "MS" : "";
+					$tile[0].addEventListener(eventPrefix + 'PointerDown', data.bounceMethods.bounceDown, false);
 				} else if (metrojs.capabilities.canTouch) {
 					// everybody else                    
 					$tile.bind("touchstart.liveTile", data.bounceMethods.bounceDown);
+					$tile.bind("mousedown.liveTile", data.bounceMethods.bounceDown);
 
 				} else {
 					$tile.bind("mousedown.liveTile", data.bounceMethods.bounceDown);
@@ -1234,11 +1290,12 @@ var privMethods = {
 		}
 	},
 	unbindMsBounce: function ($tile, data) {
-		if (data.bounce && window.navigator.msPointerEnabled) {// touch only -> // && window.navigator.msMaxTouchPoints) {
-			$tile[0].removeEventListener('MSPointerDown', data.bounceMethods.bounceDown, false);
-			$tile[0].removeEventListener('MSPointerCancel', data.bounceMethods.bounceUp, false);
-			$tile[0].removeEventListener('MSPointerOut', data.bounceMethods.bounceUp, false);
-			//$tile[0].removeEventListener('MSPointerMove', data.bounceMethods.bounceMove, false);
+		if (data.bounce && (window.PointerEvent || window.MSPointerEvent)) {// touch only -> // && window.navigator.msMaxTouchPoints) {
+			var eventPrefix = window.MSPointerEvent ? "MS" : "";
+			$tile[0].removeEventListener(eventPrefix + 'PointerDown', data.bounceMethods.bounceDown, false);
+			$tile[0].removeEventListener(eventPrefix + 'PointerCancel', data.bounceMethods.bounceUp, false);
+			$tile[0].removeEventListener(eventPrefix + 'PointerOut', data.bounceMethods.bounceUp, false);
+			//$tile[0].removeEventListener(eventPrefix + 'PointerMove', data.bounceMethods.bounceMove, false);
 		}
 	},
 	bindLink: function ($tile, data) {
@@ -2505,13 +2562,27 @@ jQuery.fn.applicationBar = function (options) {
                 data.animateAppBar(true);
         };
         data.animateAppBar = function (isExpanded) {
-            var hgt = isExpanded ? data.collapseHeight : data.expandHeight;
-            if (isExpanded)
-                $this.removeClass("expanded");
-            else
-                if (!$this.hasClass("expanded"))
-                    $this.addClass("expanded");
-            $this.stop().animate({ height: hgt }, { duration: data.duration });
+        	var hgt = isExpanded ? data.collapseHeight : data.expandHeight,
+        		t;
+        	if (isExpanded) {
+        		t = stgs.collapse();
+        		if (typeof (t) != "undefined" && t === false)
+        			return;
+        		$this.removeClass("expanded");
+        	} else {
+        		t = stgs.expand();
+        		if (typeof (t) != "undefined" && t === false)
+					return
+        		if (!$this.hasClass("expanded"))
+        			$this.addClass("expanded");
+        	}
+            $this.stop().animate({ height: hgt }, { duration: data.duration }, function () {
+            	if (isExpanded) {
+            		stgs.collapsed();
+            	} else {
+            		stgs.expanded();
+            	}
+            });
         };
         $this.data("ApplicationBar", data)
 
@@ -2556,7 +2627,11 @@ jQuery.fn.applicationBar.defaults = {
     handleSelector: "a.etc",
     metroLightUrl: 'images/metroIcons_light.jpg',  // the url for the metro light icons (only needed if preload 'preloadAltBaseTheme' is true)
     metroDarkUrl: 'images/metroIcons.jpg',         // the url for the metro dark icons (only needed if preload 'preloadAltBaseTheme' is true)
-    preloadAltBaseTheme: false                             // should the applicationBar icons be pre loaded for the alternate theme to enable fast theme switching    
+    preloadAltBaseTheme: false,                             // should the applicationBar icons be pre loaded for the alternate theme to enable fast theme switching
+    expand: function () { },								// called before expanding. return false to cancel
+    collapse: function() { },								// called before collapsing. return false to cancel
+    expanded: function () { },								// called after expanding
+    collapsed: function () { }								// called agter collapsing
 };
 /* Preload Images */
 // Usage: jQuery(['img1.jpg', { src: 'img2.jpg' }]).metrojs.preloadImages(function(){ ... });
@@ -2663,7 +2738,8 @@ $.fn.metrojs.MetroModernizr = function (stgs) {
                 };
                 var test_touch = function() {
                     return canTouch = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch ||
-                        (typeof(window.navigator.msMaxTouchPoints) !== "undefined" && window.navigator.msMaxTouchPoints > 0) ||
+                        (window.PointerEvent && window.navigator.maxTouchPoints > 0) ||
+                        (window.MSPointerEvent && window.navigator.msMaxTouchPoints > 0) ||
                         testMediaQuery(['@media (',prefixes.join('touch-enabled),('),mod,')','{#metromodernizr{top:9px;position:absolute}}'].join(''), function(div){
                             return div.offsetTop === 9;
                         });
