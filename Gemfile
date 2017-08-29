@@ -76,5 +76,3 @@ gem "font-awesome-rails"
 gem "xml-simple"
 
 gem 'rufus-scheduler'
-
-gem 'bootstrap-sass'

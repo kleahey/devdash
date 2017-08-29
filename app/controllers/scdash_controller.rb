@@ -9,6 +9,6 @@ class ScdashController < ApplicationController
     @totalChats = @totalAppChats + @totalRecChats
     @totalInterations = @solvedAppTickets + @solvedRecTickets + @totalChats
 
-    @appTicketNameArray = Scdash.app_ticket_counts.sort_by {|k, v| v}.reverse
+    @ticketNameArray = Scdash.team_member_ticket_counts.sort_by {|k, v| v}.reverse
   end
 end

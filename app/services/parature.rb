@@ -62,25 +62,6 @@ def recommender_requests(configuration, request_params, request_method, request_
   XmlSimple.xml_in(response.body, { 'KeepRoot' => false })
 end
 
-# Get applicant ticket spectific information
-def applicant_ticket_request(configuration, ticket_id, request_method, request_body = nil)
-
-  base_url = URI.parse("https://#{configuration[:hostname]}/")
-
-  request = Net::HTTP.new(base_url.host, base_url.port)
-  request.use_ssl = true
-  request.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-  request_url = "/api/v1/#{configuration[:account_id]}/#{configuration[:applicant_id]}/Ticket/#{ticket_id}&_token_=#{configuration[:token]}"
-
-  args = [request_method, request_url]
-  args << XmlSimple.xml_out(request_body, { 'KeepRoot' => true }) if request_body
-
-  response = request.send(*args)
-
-  XmlSimple.xml_in(response.body, { 'KeepRoot' => false })
-end
-
 
 class Parature
 
@@ -114,11 +95,16 @@ class Parature
     recommender_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&Date_Ended_min_=_today_", :get, nil)
   end
 
-  def self.solved_app_tickets_by_team_member
-    solved = applicant_requests($configuration, "Ticket?_total_=false&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&_pageSize_=200", :get, nil)
-
+  def self.solved_tickets_by_team_member
     array = []
-    solved['Ticket'].map do |x|
+
+    applicant = applicant_requests($configuration, "Ticket?_total_=false&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&_pageSize_=200", :get, nil)
+    applicant['Ticket'].map do |x|
+      array.push(x["Assigned_To"][0]["Csr"][0]["Full_Name"][0]["content"])
+    end
+
+    recommender = recommender_requests($configuration, "Ticket?_total_=false&Date_Created_min_=_last_week_&Ticket_Status_id_=13&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&_pageSize_=200", :get, nil)
+    recommender['Ticket'].map do |x|
       array.push(x["Assigned_To"][0]["Csr"][0]["Full_Name"][0]["content"])
     end
 

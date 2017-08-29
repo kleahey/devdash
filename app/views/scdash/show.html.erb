@@ -98,9 +98,9 @@
                   <div class="grid-title no-border">
                     <h4>Tickets Answered <span class="semi-bold">Today</span></h4>
                     <div class="tools">
-                      <a href="javascript:;" class="collapse"></a>
-                      <a href="#grid-config" data-toggle="modal" class="config"></a>
-                      <a href="javascript:;" class="reload"></a>
+                      <%= link_to( content_tag(:i, 'more horiz', class: "material-icons" ), "javascript:;", class: "collapse" ) %>
+                      <%= link_to( content_tag(:i, 'apps', class: "material-icons" ), "#grid-config", class: "config", 'data-toggle' => 'modal') %>
+                      <%= link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ) %>
                       <a href="javascript:;" class="remove"></a>
                     </div>
                   </div>
@@ -114,7 +114,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% @appTicketNameArray.each do |k, v| %>
+                        <% @ticketNameArray.each do |k, v| %>
                           <tr>
                             <td><%= k %></td>
                             <td><%= v %></td>

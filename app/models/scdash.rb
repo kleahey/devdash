@@ -23,7 +23,8 @@ class Scdash < ApplicationRecord
     Parature.solved_rec_chat
   end
 
-  def self.app_ticket_counts
-    Parature.solved_app_tickets_by_team_member
+  def self.team_member_ticket_counts
+    Parature.solved_tickets_by_team_member
   end
+
 end

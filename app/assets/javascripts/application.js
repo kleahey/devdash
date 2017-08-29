@@ -10,10 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
 //= require jquery/jquery-1.11.3.min.js
 //= require jquery-ui/jquery-ui-1.10.1.custom.min.js
-//= require rails-ujs
-//= require datatables.js
 //= require jquery/jquery.blockui.js
 //= require jquery/jquery.cookie.js
 //= require jquery/jquery.nanoscroller.min.js
@@ -32,12 +31,11 @@
 //= require jquery-sparkline/jquery-sparkline.js
 //= require jquery-validation/jquery.validate.js
 //= require jquery-validation/additional-methods.js
+//= require mapplic/jquery.mousewheel.js
 //= require bootstrapv3/bootstrap.js
 //= require bootstrapv3/bootstrap.min.js
-//= require owl-carousel/owl.carousel.js
-//= require mapplic/jquery.easing.js
-//= require mapplic/jquery.mousewheel.js
 //= require bootstrapv3/npm.js
+//= require mapplic/jquery.easing.js
 //= require bootstrap-checkbox/bootstrap-checkbox.js
 //= require bootstrap-clockpicker/bootstrap-clockpicker.js
 //= require bootstrap-clockpicker/jquery-clockpicker.js
@@ -51,6 +49,7 @@
 //= require bootstrap-timepicker/bootstrap-timepicker.js
 //= require bootstrap-wizard/jquery.bootstrap.wizard.min.js
 //= require bootstrap-select2/select2.js
+//= require owl-carousel/owl.carousel.js
 //= require mapplic/mapplic.js
 //= require mapplic/hammer.js
 //= require mapplic/html5shiv.js
@@ -85,5 +84,5 @@
 //= require shape-hover/snap.svg-min.js
 //= require select2/select2.min.js
 //= require jquery-metrojs/MetroJs.js
+//= require datatables.js
 //= require turbolinks
-//= require_tree .
