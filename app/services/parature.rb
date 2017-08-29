@@ -67,7 +67,8 @@ class Parature
 
   def self.active_app_tickets
     # Get active Applicant tickets
-    applicant_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
+    one = applicant_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
+    return one
   end
 
   def self.solved_app_tickets

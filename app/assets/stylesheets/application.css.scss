@@ -35,7 +35,11 @@
 @import "webarch/modules.scss";
 @import "font-awesome";
 @import "wysi/wysi.scss";
-@import "uniform/uniform.default.scss";
+@import "uniform/_base.scss";
+@import "uniform/agent.scss";
+@import "uniform/aristo.scss";
+@import "uniform/default.scss";
+@import "uniform/jeans.scss";
 @import "bootstrap-checkbox/bootstrap-checkbox.scss";
 @import "bootstrap-clockpicker/bootstrap-clockpicker.scss";
 @import "bootstrap-clockpicker/jquery-clockpicker.scss";
@@ -47,7 +51,10 @@
 @import "bootstrap-timepicker/bootstrap-timepicker.scss";
 @import "bootstrap-select2/select2.scss";
 @import "clockface/clockface.scss";
-@import "fancybox/jquery.fancybox.scss";
+@import "fancybox/core.scss";
+@import "fancybox/fullscreen.scss";
+@import "fancybox/slideshow.scss";
+@import "fancybox/thumbs.scss";
 @import "fullcalendar/fullcalendar.scss";
 @import "fullcalendar/fullcalendar.print.scss";
 @import "gritter/jquery.gritter.scss";
