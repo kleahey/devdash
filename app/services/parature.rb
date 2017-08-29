@@ -68,12 +68,21 @@ class Parature
   def self.active_app_tickets
     # Get active Applicant tickets
     one = applicant_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
+
+    ActionCable.server.broadcast 'scdash',
+      active_app_tickets: one["total"]
+
     return one
   end
 
   def self.solved_app_tickets
     # Get Total Solved Applicant Tickets for Today
-    applicant_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z", :get, nil)
+    two = applicant_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=7&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z", :get, nil)
+
+    ActionCable.server.broadcast 'scdash',
+      solved_app_tickets: two["total"]
+
+    return two
   end
 
   def self.solved_app_chat

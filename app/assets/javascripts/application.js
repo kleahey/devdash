@@ -103,4 +103,4 @@
 //= require jquery-metrojs/MetroJs.js
 //= require datatables.js
 //= require turbolinks
-//= require pusher/pusher.min.js
+//= require_tree ./channels

@@ -2,6 +2,6 @@
   <div class="tiles-body">
     <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
     <div class="tiles-title"> ACTIVE APPLICANT TICKETS </div>
-    <div class="heading"> <span class="animate-number" data-value="<%= @activeAppTickets %>" data-animation-duration="700">0</span></div>
+    <div class="heading"> <span id="activeAppTickets" class="animate-number" data-value="<%= @activeAppTickets %>" data-animation-duration="700">0</span></div>
   </div>
 </div>
