@@ -87,17 +87,27 @@ class Parature
 
   def self.solved_app_chat
     # Get Total Solved Applicant Chats for Today
-    applicant_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&Date_Ended_min_=_today_", :get, nil)
+    three = applicant_requests($configuration, "Chat?_total_=yes&Date_Created_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z&Date_Ended_min_=_today_", :get, nil)
   end
 
   def self.active_rec_tickets
     # Get active Recommender tickets
-    recommender_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
+    four = recommender_requests($configuration, 'Ticket?_total_=true&_status_type_=open', :get, nil)
+
+    ActionCable.server.broadcast 'scdash',
+      active_rec_tickets: four["total"]
+
+    return four
   end
 
   def self.solved_rec_tickets
     # Get Total Solved Recommender Tickets for Today
-    recommender_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=13&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z", :get, nil)
+    five = recommender_requests($configuration, "Ticket?_total_=true&Date_Created_min_=_last_week_&Ticket_Status_id_=13&Date_Updated_min_=#{Time.now.strftime('%Y-%m-%d')}T04:00:00Z", :get, nil)
+
+    ActionCable.server.broadcast 'scdash',
+      solved_rec_tickets: five["total"]
+
+    return five
   end
 
   def self.solved_rec_chat

@@ -52,7 +52,7 @@
               <div class="tiles-body">
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> ACTIVE RECOMMENDER TICKETS </div>
-                <div class="heading"><span class="animate-number" data-value="<%= @activeRecTickets %>" data-animation-duration="700">0</span></div>
+                <div class="heading"><span id="activeRecTickets" class="animate-number" data-value="<%= @activeRecTickets %>" data-animation-duration="700">0</span></div>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
                 <%= content_tag(:div, link_to( content_tag(:i, 'refresh', class: "material-icons" ), "javascript:;", class: "reload" ), class: "controller") %>
                 <div class="tiles-title"> TODAY'S SOLVED RECOMMEDNER TICKETS </div>
                 <div class="row-fluid">
-                  <div class="heading"> <span class="animate-number" data-value="<%= @solvedRecTickets %>" data-animation-duration="1000">0</span> </div>
+                  <div class="heading"> <span id="totalRecTickets" class="animate-number" data-value="<%= @solvedRecTickets %>" data-animation-duration="1000">0</span> </div>
                 </div>
               </div>
             </div>
