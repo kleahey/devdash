@@ -72,7 +72,25 @@ class Parature
     ActionCable.server.broadcast 'scdash',
       active_app_tickets: one["total"]
 
-    return one
+    active_app_tickets = $redis.get("active_app_tickets")
+      if active_app_tickets.nil?
+        active_app_tickets = one.to_json
+        $redis.set("active_app_tickets", active_app_tickets)
+      end
+
+    json = JSON.load active_app_tickets
+    return json
+  end
+
+  def self.redis_active_app_tickets
+    active_app_tickets = $redis.get("active_app_tickets")
+      if active_app_tickets.nil?
+        active_app_tickets = one.to_json
+        $redis.set("active_app_tickets", active_app_tickets)
+      end
+
+    json = JSON.load active_app_tickets
+    return json
   end
 
   def self.solved_app_tickets
@@ -81,8 +99,17 @@ class Parature
 
     ActionCable.server.broadcast 'scdash',
       solved_app_tickets: two["total"]
+  end
 
-    return two
+  def self.redis_solved_app_tickets
+    solved_app_tickets = $redis.get("solved_app_tickets")
+      if solved_app_tickets.nil?
+        solved_app_tickets = two.to_json
+        $redis.set("solved_app_tickets", solved_app_tickets)
+      end
+
+    json = JSON.load solved_app_tickets
+    return json
   end
 
   def self.solved_app_chat
@@ -96,8 +123,17 @@ class Parature
 
     ActionCable.server.broadcast 'scdash',
       active_rec_tickets: four["total"]
+  end
 
-    return four
+  def self.redis_active_rec_tickets
+    active_rec_tickets = $redis.get("active_rec_tickets")
+      if active_rec_tickets.nil?
+        active_rec_tickets = four.to_json
+        $redis.set("active_rec_tickets", active_rec_tickets)
+      end
+
+    json = JSON.load active_rec_tickets
+    return json
   end
 
   def self.solved_rec_tickets
@@ -106,8 +142,17 @@ class Parature
 
     ActionCable.server.broadcast 'scdash',
       solved_rec_tickets: five["total"]
+  end
 
-    return five
+  def self.redis_solved_rec_tickets
+    solved_rec_tickets = $redis.get("solved_rec_tickets")
+      if solved_rec_tickets.nil?
+        solved_rec_tickets = five.to_json
+        $redis.set("solved_rec_tickets", solved_rec_tickets)
+      end
+
+    json = JSON.load solved_rec_tickets
+    return json
   end
 
   def self.solved_rec_chat

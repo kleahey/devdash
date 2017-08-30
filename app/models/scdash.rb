@@ -1,10 +1,10 @@
 class Scdash < ApplicationRecord
   def self.app_active
-    Parature.active_app_tickets
+    Parature.redis_active_app_tickets
   end
 
   def self.app_solved
-    Parature.solved_app_tickets
+    Parature.redis_solved_app_tickets
   end
 
   def self.app_chat
@@ -12,11 +12,11 @@ class Scdash < ApplicationRecord
   end
 
   def self.rec_active
-    Parature.active_rec_tickets
+    Parature.redis_active_rec_tickets
   end
 
   def self.rec_solved
-    Parature.solved_rec_tickets
+    Parature.redis_solved_rec_tickets
   end
 
   def self.rec_chat
