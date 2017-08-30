@@ -101,5 +101,6 @@
 //= require select2/select2.min.js
 //= require jquery-metrojs/MetroJs.js
 //= require datatables.js
+//= require scdash.coffee
 //= require turbolinks
 //= require_tree ./channels
