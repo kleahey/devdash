@@ -12,12 +12,12 @@
 //
 //= require rails-ujs
 //= require jquery/jquery-1.11.3.min.js
+//= require jquery-scrollbar/jquery.scrollbar.min.js
+//= require jquery.nanoscroller.min.js
 //= require jquery-ui/jquery-ui-1.10.1.custom.min.js
 //= require jquery/jquery.blockui.js
 //= require jquery/jquery.cookie.js
-//= require jquery/jquery.nanoscroller.min.js
 //= require jquery-numberAnimate/jquery.animateNumbers.js
-//= require jquery-scrollbar/jquery.scrollbar.min.js
 //= require jquery-datatable/jquery.dataTables.js
 //= require jquery-fittext/jquery.fittext.js
 //= require jquery-mixitup/jquery.mixitup.min.js
@@ -31,6 +31,8 @@
 //= require jquery-sparkline/jquery-sparkline.js
 //= require jquery-validation/jquery.validate.js
 //= require jquery-validation/additional-methods.js
+//= require jquery-datatable/js/dataTables.tableTools.min.js
+//= require jquery-datatable/js/ZeroClipboard.js
 //= require mapplic/jquery.mousewheel.js
 //= require bootstrapv3/bootstrap.js
 //= require bootstrapv3/bootstrap.min.js
@@ -59,7 +61,6 @@
 //= require bootstrap-tag/bootstrap-tagsinput.js
 //= require bootstrap-timepicker/bootstrap-timepicker.js
 //= require bootstrap-wizard/jquery.bootstrap.wizard.min.js
-//= require bootstrap-select2/select2.js
 //= require owl-carousel/owl.carousel.js
 //= require mapplic/mapplic.js
 //= require mapplic/hammer.js
@@ -79,8 +80,6 @@
 //= require fancybox/thumbs.js
 //= require fullcalendar/fullcalendar.js
 //= require fullcalendar/gcal.js
-//= require gmaps/gmaps.js
-//= require gmaps/google_maps_api.js
 //= require gritter/jquery.gritter.js
 //= require ios-switch/ios7-switch.js
 //= require data-tables/DT_bootstrap.js
@@ -97,8 +96,8 @@
 //= require uniform/jquery.uniform.js
 //= require wysi/bootstrap-wysiwyg.js
 //= require modernizer/modernizr.js
-//= require shape-hover/hovers.js
 //= require shape-hover/snap.svg-min.js
+//= require shape-hover/hovers.js
 //= require select2/select2.min.js
 //= require jquery-metrojs/MetroJs.js
 //= require datatables.js
