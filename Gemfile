@@ -81,3 +81,5 @@ gem "xml-simple"
 gem 'rufus-scheduler'
 
 gem 'pusher'
+
+gem 'jquery-turbolinks'

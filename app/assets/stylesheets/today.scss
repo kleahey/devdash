@@ -1,3 +1,97 @@
 // Place all the styles related to the today controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pagination {
+   justify-content: center;
+}
+
+.card-title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.card.input {
+  margin-top: 40px;
+  padding: 20px
+}
+
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+.posts-wrapper {
+  padding-top: 40px;
+  margin: 0 auto;
+  max-width: 642px;
+  width: 100%;
+}
+
+#form_button {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.post {
+  background-color: #fff;
+  border-color: #edeeee;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  margin-bottom: 60px;
+}
+
+.post-head {
+  height: 64px;
+  padding: 14px 20px;
+  color: #125688;
+  font-size: 15px;
+  line-height: 18px;
+  .thumbnail {}
+  .name {
+    display: block;
+  }
+}
+
+.rally {
+  padding-top: 40px;
+}
+
+.copyrights{
+margin-top:25px;
+}
+
+footer.container-fluid.text-center.foot {
+    background: #383838;
+}
+
+.dark-line{
+border-top: 1px solid #525252;
+}
+
+.white-txt{
+color: #FFF;
+}
+
+
+a.link {
+    color: #008acc;
+    border: 1px #008acc solid;
+    padding: 5px;
+    text-decoration: none;
+}
+
+a.link:hover {
+background: #008acc;
+    color: #383838;
+}
+
+.footimg{
+width: 5rem;
+}

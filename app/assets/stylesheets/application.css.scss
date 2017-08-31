@@ -10,9 +10,53 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
+*= require jquery-ui/jquery-ui-1.10.1.custom.min
+*= require bootstrapv3/bootstrap
+*= require bootstrapv3/bootstrap-theme.scss
+*= require animate.min.scss
+*= require jquery-scrollbar/jquery.scrollbar.scss
+*= require font-awesome
  */
 
-@import "font-awesome";
+@import "jquery-polymaps/style.scss";
+@import "jquery-metrojs/MetroJs.scss";
+@import "shape-hover/demo.scss";
+@import "shape-hover/component.scss";
+@import "owl-carousel/owl.carousel.scss";
+@import "owl-carousel/owl.theme.scss";
+@import "pace/pace-theme-flash.scss";
+@import "Mapplic/mapplic.scss";
+
+@import "bootstrap-select2/select2.scss";
+@import "bootstrap-checkbox/bootstrap-checkbox.scss";
+@import "bootstrap-clockpicker/bootstrap-clockpicker.scss";
+@import "bootstrap-clockpicker/jquery-clockpicker.scss";
+@import "bootstrap-slider/slider.scss";
+@import "bootstrap-colorpicker/bootstrap-colorpicker.scss";
+@import "bootstrap-wysihtml5/bootstrap-wysihtml5.scss";
+@import "bootstrap-wysihtml5/wysiwyg-color.scss";
+@import "bootstrap-tag/bootstrap-tagsinput.scss";
+@import "bootstrap-timepicker/bootstrap-timepicker.scss";
+
+@import "webarch/webarch.scss";
+
+@import "data-tables/DT_bootstrap.scss";
+@import "jquery-block-ui/jqueryblockui.scss";
+@import "jquery-craftmap/default.scss";
+@import "jquery-craftmap/demo.scss";
+@import "jquery-polymaps/style.scss";
+@import "jquery-slider/jquery.sidr.dark.scss";
+@import "jquery-slider/jquery.sidr.light.scss";
+@import "jquery-datatable/scss/TableTools.scss";
+@import "jquery-datatable/scss/TableTools_JUI.scss";
+@import "jquery-datatable/jquery.dataTables.scss";
+
+@import "jquery-slider/jquery.sidr.light.scss";
+@import "jquery-scrollbar/jquery.scrollbar.scss";
+
+@import "jquery-metrojs/MetroJs.scss";
+
 @import "clockface/clockface.scss";
 @import "fancybox/core.scss";
 @import "fancybox/fullscreen.scss";
@@ -35,138 +79,15 @@
 @import "owl-carousel/owl.carousel.scss";
 @import "owl-carousel/owl.theme.scss";
 @import "pace/pace-theme-flash.scss";
-@import "animate.min.scss";
 @import "wysi/wysi.scss";
 @import "uniform/_base.scss";
 @import "uniform/agent.scss";
 @import "uniform/aristo.scss";
 @import "uniform/default.scss";
 @import "uniform/jeans.scss";
-@import "bootstrapv3/bootstrap.scss";
-@import "bootstrapv3/bootstrap-theme.scss";
-@import "bootstrap-select2/select2.scss";
-@import "bootstrap-checkbox/bootstrap-checkbox.scss";
-@import "bootstrap-clockpicker/bootstrap-clockpicker.scss";
-@import "bootstrap-clockpicker/jquery-clockpicker.scss";
-@import "bootstrap-slider/slider.scss";
-@import "bootstrap-colorpicker/bootstrap-colorpicker.scss";
-@import "bootstrap-wysihtml5/bootstrap-wysihtml5.scss";
-@import "bootstrap-wysihtml5/wysiwyg-color.scss";
-@import "bootstrap-tag/bootstrap-tagsinput.scss";
-@import "bootstrap-timepicker/bootstrap-timepicker.scss";
-@import "jquery-ui/jquery-ui-1.10.1.custom.min.scss";
-@import "jquery-block-ui/jqueryblockui.scss";
-@import "jquery-craftmap/default.scss";
-@import "jquery-craftmap/demo.scss";
-@import "jquery-polymaps/style.scss";
-@import "jquery-slider/jquery.sidr.dark.scss";
+
 @import "jquery-slider/jquery.sidr.light.scss";
-@import "jquery-metrojs/MetroJs.scss";
-@import "webarch/mixins.scss";
-@import "webarch/responsive.scss";
-@import "webarch/style.scss";
-@import "webarch/modules.scss";
-@import "data-tables/DT_bootstrap.scss";
-@import "datatables-responsive/datatables.responsive.scss";
-@import "jquery-datatable/scss/TableTools_JUI.scss";
-@import "jquery-datatable/scss/TableTools.scss";
-@import "jquery-datatable/jquery.dataTables.scss";
-@import "jquery-datatable/jquery.dataTables_themeroller.scss";
-@import "jquery-datatable/demo_page.scss";
-@import "jquery-datatable/demo_table_jui.scss";
-@import "jquery-datatable/demo_table.scss";
-@import "jquery-scrollbar/jquery.scrollbar.scss";
 
-.pagination {
-   justify-content: center;
-}
+@import "pace/pace-theme-flash.scss";
 
-.card-title {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.card.input {
-  margin-top: 40px;
-  padding: 20px
-}
-
-.Site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.Site-content {
-  flex: 1;
-}
-
-.posts-wrapper {
-  padding-top: 40px;
-  margin: 0 auto;
-  max-width: 642px;
-  width: 100%;
-}
-
-#form_button {
-  margin-top: 40px;
-  width: 100%;
-}
-
-.post {
-  background-color: #fff;
-  border-color: #edeeee;
-  border-style: solid;
-  border-radius: 3px;
-  border-width: 1px;
-  margin-bottom: 60px;
-}
-
-.post-head {
-  height: 64px;
-  padding: 14px 20px;
-  color: #125688;
-  font-size: 15px;
-  line-height: 18px;
-  .thumbnail {}
-  .name {
-    display: block;
-  }
-}
-
-.rally {
-  padding-top: 40px;
-}
-
-.copyrights{
-margin-top:25px;
-}
-
-footer.container-fluid.text-center.foot {
-    background: #383838;
-}
-
-.dark-line{
-border-top: 1px solid #525252;
-}
-
-.white-txt{
-color: #FFF;
-}
-
-
-a.link {
-    color: #008acc;
-    border: 1px #008acc solid;
-    padding: 5px;
-    text-decoration: none;
-}
-
-a.link:hover {
-background: #008acc;
-    color: #383838;
-}
-
-.footimg{
-width: 5rem;
-}
+@import "today";

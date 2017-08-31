@@ -1,4 +1,12 @@
 <div class="page-content">
+  <div id="portlet-config" class="modal hide">
+    <div class="modal-header">
+      <button data-dismiss="modal" class="close" type="button"></button>
+      <h3>Widget Settings</h3>
+    </div>
+    <div class="modal-body"> Widget settings form goes here </div>
+  </div>
+  <div class="clearfix"></div>
   <div class="content">
   <p id="notice"><%= notice %></p>
     <div class="page-title">
@@ -11,7 +19,7 @@
 
     </br>
 
-    <div class="row-fluid" data-turbolinks="false">
+    <div class="row-fluid">
       <div class="span12">
         <div class="grid simple ">
           <div class="grid-title">
@@ -24,7 +32,7 @@
             </div>
           </div>
           <div class="grid-body ">
-            <table class="table" id="example3">
+            <table class="table table-hover table-condensed" id="example">
               <thead>
                 <tr>
                   <th>Options</th>
